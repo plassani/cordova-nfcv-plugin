@@ -46,7 +46,7 @@ public class NfcVHandler {
     // Tags may have different values
     private static final byte CMD_READ = (byte)0x20;
     private static final byte CMD_WRITE = (byte)0x21;
-    private static final byte CMD_FLAGS = (byte)0x02;
+    private static final byte CMD_FLAGS = (byte)0x0A;
 
     private NfcAdapter nfcAdapter;
     private Activity activity;
