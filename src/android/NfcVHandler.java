@@ -235,8 +235,9 @@ public class NfcVHandler {
         byte[] request = new byte[2 + readBlock.length];
         request[0] = NfcVHandler.getRequestFlags(readBlock);
         request[1] = CMD_READ;
+        request[2] = 0;
         for (int i = 0; i < readBlock.length; i++) {
-            request[2 + i] = readBlock[i];
+            request[3 + i] = readBlock[i];
         }
         
         System.out.println("READ");
