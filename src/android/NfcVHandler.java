@@ -104,25 +104,28 @@ public class NfcVHandler {
 
         System.out.println("**NFC-PLUGIN - Action: " + intent.getAction());
 
-        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
-            byte[] ndef = NfcVHandler.getNdefPayloadFromNdef(this.newIntent);
-            this.webView.sendJavascript(NfcVHandler.getJsEventTemplate(ndef));
+        // if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
+        //     byte[] ndef = NfcVHandler.getNdefPayloadFromNdef(this.newIntent);
+        //     this.webView.sendJavascript(NfcVHandler.getJsEventTemplate(ndef));
             
-            this.callbackContext.success(ndef);
-        } 
-        else if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(intent.getAction())) {
-            try {
-                byte[] ndef = NfcVHandler.getNdefPayloadFromNfcv(this.newIntent);
-                this.webView.sendJavascript(NfcVHandler.getJsEventTemplate(ndef));
+        //     this.callbackContext.success(ndef);
+        // } 
+        // else if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(intent.getAction())) {
+        //     try {
+                // byte[] ndef = NfcVHandler.getNdefPayloadFromNfcv(this.newIntent);
                 
-                this.callbackContext.success(ndef);
-            } catch(Exception e) {
-                this.callbackContext.error(e.getMessage());
-            }
-        } 
-        else {
-            this.callbackContext.error(E_NFC_INTENT_UNKNOWN);
-        }
+        byte[] ndef = new byte[1];
+
+        this.webView.sendJavascript(NfcVHandler.getJsEventTemplate(ndef));
+        
+        this.callbackContext.success(ndef);
+            // } catch(Exception e) {
+                // this.callbackContext.error(e.getMessage());
+            // }
+        // } 
+        // else {
+        //     this.callbackContext.error(E_NFC_INTENT_UNKNOWN);
+        // }
     }
 
     public static String startIntent(Intent intent) {
