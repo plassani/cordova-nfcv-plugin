@@ -232,7 +232,7 @@ public class NfcVHandler {
 
     private static byte[] readNfcVBlock(Intent intent, byte[] readBlock) throws Exception {
         // Prepare request
-        byte[] request = new byte[2 + readBlock.length];
+        byte[] request = new byte[3 + readBlock.length];
         request[0] = NfcVHandler.getRequestFlags(readBlock);
         request[1] = CMD_READ;
         request[2] = 0;
