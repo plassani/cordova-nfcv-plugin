@@ -101,7 +101,7 @@ public class NfcVHandler {
 
     public void newIntent(Intent intent) {
         this.newIntent = intent;
-
+        System.out.println("** c'est mon code **");
         System.out.println("**NFC-PLUGIN - Action: " + intent.getAction());
 
         // if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
