@@ -238,6 +238,9 @@ public class NfcVHandler {
         for (int i = 0; i < readBlock.length; i++) {
             request[2 + i] = readBlock[i];
         }
+        
+        System.out.println("READ");
+        System.out.println(Arrays.toString(request));
 
         return NfcVHandler.transceiveNfcV(intent, request);
     }
@@ -253,6 +256,9 @@ public class NfcVHandler {
         for (int i = 0; i < writeData.length; i++) {
             request[2 + writeBlock.length + i] = writeData[i];
         }
+
+        System.out.println("WRITE");
+        System.out.println(Arrays.toString(request));
 
         return NfcVHandler.transceiveNfcV(intent, request);
     }
