@@ -391,7 +391,7 @@ public class NfcVHandler {
     }
 
     private byte[] argToBytes(JSONObject bytes) {
-        byte[] readBlock = new byte[1];
+        byte[] readBlock = new byte[2];
 
         Iterator<String> keys;
         String key;
